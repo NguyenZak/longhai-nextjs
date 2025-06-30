@@ -36,10 +36,11 @@ export default function ContactForm() {
 
       // Tự động ẩn popup sau 3s
       setTimeout(() => setShowPopup(false), 3000);
-    } catch (err) {
-      alert("Không thể gửi dữ liệu. Vui lòng thử lại.");
-      console.error(err);
-    }
+    } catch (err: unknown) {
+  alert("Không thể gửi dữ liệu. Vui lòng thử lại.");
+  console.error(err);
+}
+
   };
 
   return (

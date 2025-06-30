@@ -24,17 +24,17 @@ const partners = [
 export default function AboutPage() {
   const [form, setForm] = useState({ name: "", phone: "" });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e) => {
+  //   setForm({ ...form, [e.target.name]: e.target.value });
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Cảm ơn ${form.name}, chúng tôi sẽ liên hệ sớm nhất!`);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   alert(`Cảm ơn ${form.name}, chúng tôi sẽ liên hệ sớm nhất!`);
+  // };
 
   return (
-    <main className="bg-white px-4 max-w-6xl mx-auto text-gray-800">
+    <main className="bg-white text-gray-900 pt-20">
 
       <Header />
       <HeroSlider />
@@ -68,7 +68,8 @@ export default function AboutPage() {
       {/* Tầm nhìn - Sứ mệnh */}
       <VisionMissionTabs />
       {/* Dịch vụ của chúng tôi */}
-<section className="mb-10">
+<section className="mb-10 bg-white px-4 max-w-6xl mx-auto text-gray-800
+">
   <h2 className="text-5xl md:text-6xl text-center py-10 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500 mb-6">Dịch vụ của chúng tôi</h2>
   <div className="">
     <Image
@@ -83,7 +84,7 @@ export default function AboutPage() {
 
 
       {/* Đối tác */}
-<section className="mb-10">
+<section className="mb-10 bg-white px-4 max-w-6xl mx-auto text-gray-800">
   <h2 className="text-5xl md:text-6xl text-center py-10 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500 mb-6">Đối tác của chúng tôi</h2>
  
  
@@ -121,7 +122,8 @@ export default function AboutPage() {
         <p className="text-2xl mb-4">Hãy để lại thông tin, chúng tôi sẽ liên hệ tư vấn ngay cho bạn.</p>
         <ContactForm />
       </section>
-     
+  <Footer />
+      
     </main>
     
   );
