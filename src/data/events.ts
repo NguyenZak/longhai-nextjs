@@ -1,0 +1,90 @@
+// data/events.ts
+
+import { s } from "framer-motion/client";
+
+export const events = [
+  {
+    slug: "hoang-dung-xoay-tron",
+    image: "/images/event-1.jpg",
+    title: "HOÀNG DŨNG – XOAY TRÒN CONCERT",
+    date: "02/08/2025",
+    time: "20:00",
+    weekday: "Thứ Bảy",
+    location: "Cung điền kinh Mỹ Đình, Hà Nội",
+    price: "Từ 200.000đ",
+    status: "Đang mở bán",
+    locationDetail: "Sân vận động Mỹ Đình, 44 Phạm Hùng, Mỹ Đình, Từ Liêm, Hà Nội",
+    mapImage: "/images/seating-map.svg",
+     artists: [
+      { name: "Mỹ Tâm", image: "/images/artists/mytam.webp" },
+      { name: "Đen Vâu", image: "/images/artists/denvau.webp" },
+     ],
+  },
+  {
+    slug: "am-thuc-chau-a",
+    image: "/images/event-2.webp",
+    title: "Lễ hội Ẩm thực Châu Á",
+    date: "10/08/2025",
+    time: "10:00",
+    location: "Phố đi bộ Nguyễn Huệ, TP.HCM",
+    status: "Sắp hết vé",
+  },
+  {
+    slug: "thoi-trang-thu-dong",
+    image: "/images/event-3.webp",
+    title: "Show diễn Thời Trang Thu Đông",
+    date: "15/09/2025",
+    time: "19:00",
+    location: "Tràng Tiền Plaza, Hà Nội",
+    status: "Đã hết vé",
+  },
+   {
+    slug: "hoang-dung-xoay-tron",
+    image: "/images/event-1.jpg",
+    title: "HOÀNG DŨNG – XOAY TRÒN CONCERT",
+    date: "02/08/2025",
+    time: "20:00",
+    location: "Cung điền kinh Mỹ Đình, Hà Nội",
+  },
+  {
+    slug: "am-thuc-chau-a",
+    image: "/images/event-2.webp",
+    title: "Lễ hội Ẩm thực Châu Á",
+    date: "10/08/2025",
+    time: "10:00",
+    location: "Phố đi bộ Nguyễn Huệ, TP.HCM",
+  },
+  {
+    slug: "thoi-trang-thu-dong",
+    image: "/images/event-3.webp",
+    title: "Show diễn Thời Trang Thu Đông",
+    date: "15/09/2025",
+    time: "19:00",
+    location: "Tràng Tiền Plaza, Hà Nội",
+  },
+  {
+    slug: "hoang-dung-xoay-tron",
+    image: "/images/event-1.jpg",
+    title: "HOÀNG DŨNG – XOAY TRÒN CONCERT",
+    date: "02/08/2025",
+    time: "20:00",
+    location: "Cung điền kinh Mỹ Đình, Hà Nội",
+  },
+  {
+    slug: "am-thuc-chau-a",
+    image: "/images/event-2.webp",
+    title: "Lễ hội Ẩm thực Châu Á",
+    date: "10/08/2025",
+    time: "10:00",
+    location: "Phố đi bộ Nguyễn Huệ, TP.HCM",
+  },
+  {
+    slug: "thoi-trang-thu-dong",
+    image: "/images/event-3.webp",
+    title: "Show diễn Thời Trang Thu Đông",
+    date: "15/09/2025",
+    time: "19:00",
+    location: "Tràng Tiền Plaza, Hà Nội",
+  },
+  
+];

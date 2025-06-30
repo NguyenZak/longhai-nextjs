@@ -1,0 +1,8 @@
+[
+  { "seatId": "A1", "row": "A", "col": 1, "zone": "VIP", "price": 500000, "status": "available" },
+  { "seatId": "A2", "row": "A", "col": 2, "zone": "VIP", "price": 500000, "status": "sold" },
+  { "seatId": "A3", "row": "A", "col": 3, "zone": "VIP", "price": 500000, "status": "available" },
+  { "seatId": "B1", "row": "B", "col": 1, "zone": "Thường", "price": 300000, "status": "available" },
+  { "seatId": "B2", "row": "B", "col": 2, "zone": "Thường", "price": 300000, "status": "hold" },
+  { "seatId": "C1", "row": "C", "col": 1, "zone": "Thường", "price": 300000, "status": "available" }
+]
