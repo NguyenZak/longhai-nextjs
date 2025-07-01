@@ -1,5 +1,5 @@
 "use client";
-
+import { use } from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -30,8 +30,15 @@ const getStatusStyle = (status: string) => {
   }
 };
 
-export default function EventDetailPage({ params }: { params: { slug: string } }) {
-  const event = events.find((e) => e.slug === params.slug);
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function EventDetailPage(props: PageProps) {
+  const { slug } = use(props.params); // ✅ unwrap Promise
+  const event = events.find((e) => e.slug === slug);
   const [showMap, setShowMap] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
@@ -199,7 +206,7 @@ export default function EventDetailPage({ params }: { params: { slug: string } }
               </div>
               <div className="flex justify-between items-center border-t mt-4 pt-4">
                 <div>
-                  <p className="text-sm text-gray-500">{event.weekday}</p>
+                  <p className="text-sm text-gray-500">{event.time}</p>
                   <p className="text-xl font-semibold">{event.date}</p>
                 </div>
                 <div className="bg-blue-100 text-blue-800 font-semibold rounded-xl px-4 py-2">

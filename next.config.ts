@@ -1,10 +1,8 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    // Gỡ dòng turbo nếu không cần
-    // turbo: true
-  }
-};
-
-export default nextConfig;
+  /* config options here */
+}
+ 
+module.exports = nextConfig

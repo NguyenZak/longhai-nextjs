@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { NavMenu } from "./NavMenu";
 
 export default function Header() {
@@ -13,7 +14,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <img src="/logo.svg" alt="Logo" className="h-8 w-auto" />
+          <Image
+  src="/logo.svg"
+  alt="Logo"
+  width={100} // hoặc kích thước mong muốn
+  height={40}
+  priority // nếu là logo hay ảnh đầu trang
+/>
         </Link>
 
         {/* Mobile Menu Button */}

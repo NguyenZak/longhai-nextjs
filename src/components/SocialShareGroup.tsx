@@ -15,14 +15,31 @@ export default function ShareActions() {
     window.open(shareUrl, "_blank", "noopener,noreferrer");
   };
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      setCopied(true);
-      toast.success("Liên kết đã được sao chép!");
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
+  // const handleCopyLink = () => {
+  //   navigator.clipboard.writeText(window.location.href).then(() => {
+  //     setCopied(true);
+  //     toast.success("Liên kết đã được sao chép!");
+  //     setTimeout(() => setCopied(false), 2000);
+  //   });
+  // };
+const handleCopyLink = () => {
+  if (typeof window !== "undefined" && navigator.clipboard) {
+    navigator.clipboard.writeText(window.location.href)
+      .then(() => {
+        setCopied(true);
+        toast.success("Liên kết đã được sao chép!");
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(() => {
+        toast.error("Không thể sao chép liên kết.");
+      });
+  } else {
+    toast.error("Trình duyệt không hỗ trợ sao chép liên kết.");
+  }
+};
 
+
+  // Reset copied state when the component mounts
   return (
     <div className="flex items-center gap-3">
       {/* Facebook Share */}

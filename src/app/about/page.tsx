@@ -117,7 +117,7 @@ export default function AboutPage() {
   <EventCarousel events={events} />
 </section>
       {/* Form đăng ký tư vấn */}
-      <section className="mb-20 text-center">
+      <section className="text-center">
         <h2 className="text-5xl md:text-6xl text-center py-10 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500 mb-6">Bạn muốn tổ chức sự kiện?</h2>
         <p className="text-2xl mb-4">Hãy để lại thông tin, chúng tôi sẽ liên hệ tư vấn ngay cho bạn.</p>
         <ContactForm />
