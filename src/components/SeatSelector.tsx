@@ -1,73 +1,44 @@
 "use client";
 
-import { useState } from "react";
-import clsx from "clsx";
-
-type Seat = {
-  seatId: string;
-  row: string;
-  col: number;
-  zone: string;
-  price: number;
-  status: "available" | "hold" | "sold";
+type SeatSelectorProps = {
+  seats: string[];
+  onChange: (seats: string[]) => void;
 };
 
-type Props = {
-  seats: Seat[];
-  onChange?: (selectedSeats: Seat[]) => void;
-};
+const allSeats = [
+  "A1", "A2", "A3", "A4", "A5",
+  "B1", "B2", "B3", "B4", "B5",
+  "C1", "C2", "C3", "C4", "C5",
+];
 
-export default function SeatSelector({ seats, onChange }: Props) {
-  const [selected, setSelected] = useState<Seat[]>([]);
-
-  const handleSelect = (seat: Seat) => {
-    if (seat.status !== "available") return;
-
-    const exists = selected.find((s) => s.seatId === seat.seatId);
-    let updated: Seat[];
-
-    if (exists) {
-      updated = selected.filter((s) => s.seatId !== seat.seatId);
+export default function SeatSelector({ seats, onChange }: SeatSelectorProps) {
+  const toggleSeat = (seatId: string) => {
+    if (seats.includes(seatId)) {
+      onChange(seats.filter((id) => id !== seatId));
     } else {
-      updated = [...selected, seat];
+      onChange([...seats, seatId]);
     }
-
-    setSelected(updated);
-    onChange?.(updated);
   };
 
-  const rows = [...new Set(seats.map((s) => s.row))];
-  const cols = Math.max(...seats.map((s) => s.col));
-
   return (
-    <div className="overflow-x-auto">
-      <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${cols}, minmax(30px, 1fr))` }}>
-        {rows.map((row) =>
-          seats
-            .filter((s) => s.row === row)
-            .sort((a, b) => a.col - b.col)
-            .map((seat) => (
-              <button
-                key={seat.seatId}
-                onClick={() => handleSelect(seat)}
-                className={clsx(
-                  "w-8 h-8 rounded text-xs",
-                  seat.status === "sold" && "bg-gray-400 cursor-not-allowed",
-                  seat.status === "hold" && "bg-yellow-300",
-                  seat.status === "available" && "bg-green-200 hover:bg-green-300",
-                  selected.find((s) => s.seatId === seat.seatId) && "bg-pink-500 text-white"
-                )}
-              >
-                {seat.row + seat.col}
-              </button>
-            ))
-        )}
-      </div>
+    <div className="grid grid-cols-5 gap-4 p-4">
+      {allSeats.map((seatId) => {
+        const isSelected = seats.includes(seatId);
 
-      <div className="mt-4 text-sm">
-        <p>Ghế đã chọn: {selected.map((s) => s.seatId).join(", ")}</p>
-        <p>Tổng tiền: {selected.reduce((sum, s) => sum + s.price, 0).toLocaleString()}₫</p>
-      </div>
+        return (
+          <button
+            key={seatId}
+            onClick={() => toggleSeat(seatId)}
+            className={`w-12 h-12 rounded text-sm font-semibold ${
+              isSelected
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+            }`}
+          >
+            {seatId}
+          </button>
+        );
+      })}
     </div>
   );
 }
