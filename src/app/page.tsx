@@ -4,6 +4,8 @@ import HeroSlider from "@/components/HeroSlider";
 import EventList from "@/components/EventList";
 import { events } from "@/data/events";
 import Footer from "@/components/Footer";
+import { Contact } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 
 
@@ -15,7 +17,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold mb-6">Sự kiện</h2>
         <EventList />
-       
+       <ContactForm />
       </div>
       <Footer />
     </main>

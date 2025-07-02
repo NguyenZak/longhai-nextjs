@@ -4,19 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { CalendarDays, MapPin } from "lucide-react";
 
-interface EventCardProps {
+export interface EventCardProps {
   slug: string;
   image: string;
   title: string;
   date: string;
   time: string;
   location: string;
-  locationDetail: string;
+  status: string;
+  // Các trường tuỳ chọn để tránh lỗi khi không đầy đủ dữ liệu
   weekday?: string;
   price?: string;
-  buyLink?: string;
+  locationDetail?: string;
+  mapImage?: string;
+  artists?: { name: string; image: string }[];
   description?: string;
-  status: string;
 }
 
 const getStatusStyle = (status: string) => {
@@ -46,7 +48,7 @@ export default function EventCard({
   return (
     <Link
       href={`/events/${slug}`}
-      className="group block rounded-xl shadow hover:shadow-lg transition overflow-hidden relative"
+      className="group block rounded-xl shadow hover:shadow-lg transition overflow-hidden relative bg-white"
     >
       {/* Background banner image */}
       <div className="relative h-60 overflow-hidden">
@@ -84,19 +86,15 @@ export default function EventCard({
           <span className="truncate">{location}</span>
         </div>
 
-        {/* Description nếu có */}
+        {/* Mô tả nếu có */}
         {description && (
-          <p className="text-sm text-gray-500 mb-1 line-clamp-2">
-            {description}
-          </p>
+          <p className="text-sm text-gray-500 mb-1 line-clamp-2">{description}</p>
         )}
 
         {/* Giá vé nếu có */}
-        {/* {price && (
-          <p className="text-sm font-semibold text-pink-600">
-            Giá vé: {price}
-          </p>
-        )} */}
+        {price && (
+          <p className="text-sm font-semibold text-pink-600">Giá vé: {price}</p>
+        )}
       </div>
     </Link>
   );

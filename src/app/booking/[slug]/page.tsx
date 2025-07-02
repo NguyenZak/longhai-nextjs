@@ -1,31 +1,19 @@
-// src/app/booking/[slug]/page.tsx
-
 import { events } from "@/data/events";
 import { notFound } from "next/navigation";
 
-// Định nghĩa một kiểu (type) tường minh cho props của trang.
-// Cách làm này giúp mã nguồn rõ ràng hơn và tránh các lỗi suy luận kiểu của TypeScript.
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
 // Hàm này sẽ được chạy lúc build time để tạo các trang tĩnh
-// Next.js sẽ biết cần tạo ra các trang cho slug 'su-kien-am-nhac-1', 'hoi-thao-cong-nghe-2', v.v.
-export async function generateStaticParams() {
-  // Giả sử `events` là một mảng các đối tượng sự kiện
+export function generateStaticParams() {
+  // Giả sử `events` là một mảng các đối tượng, mỗi đối tượng có thuộc tính `slug`
   return events.map((event) => ({
     slug: event.slug,
   }));
 }
+export type paramsType = Promise<{ slug: string }>;
 
-// Sử dụng PageProps đã định nghĩa và vẫn giữ "async"
-export default async function BookingPage({ params }: PageProps) {
-  // Tìm sự kiện tương ứng với slug từ URL
+export default async function BookingPage(props: { params: paramsType }) {
+  const params = await props.params;
   const event = events.find((e) => e.slug === params.slug);
 
-  // Nếu không tìm thấy sự kiện, hiển thị trang 404 Not Found
   if (!event) {
     notFound();
   }
