@@ -1,7 +1,5 @@
 // data/events.ts
 
-import { s } from "framer-motion/client";
-
 export const events = [
   {
     slug: "hoang-dung-xoay-tron",
@@ -15,10 +13,20 @@ export const events = [
     status: "Đang mở bán",
     locationDetail: "Sân vận động Mỹ Đình, 44 Phạm Hùng, Mỹ Đình, Từ Liêm, Hà Nội",
     mapImage: "/images/seating-map.svg",
-     artists: [
+    artists: [
       { name: "Mỹ Tâm", image: "/images/artists/mytam.webp" },
       { name: "Đen Vâu", image: "/images/artists/denvau.webp" },
-     ],
+    ],
+    ticketPrice: [
+      { name: "HÀ NỘI PHỐ", price: "6.000.000 VNĐ" },
+      { name: "KHÚC MÙA THU", price: "5.000.000 VNĐ" },
+      { name: "ĐIỀU GIẢN DỊ", price: "4.500.000 VNĐ" },
+      { name: "ROMANCE 1", price: "4.000.000 VNĐ" },
+      { name: "ROMANCE 2", price: "3.500.000 VNĐ" },
+      { name: "CHIỀU KHÔNG EM", price: "3.000.000 VNĐ" },
+      { name: "NỖI NHỚ", price: "2.000.000 VNĐ" },
+      { name: "MÂY XƯA", price: "1.000.000 VNĐ" },
+    ],
   },
   {
     slug: "am-thuc-chau-a",
@@ -28,6 +36,10 @@ export const events = [
     time: "10:00",
     location: "Phố đi bộ Nguyễn Huệ, TP.HCM",
     status: "Sắp hết vé",
+    ticketPrice: [
+      { name: "Vé tiêu chuẩn", price: "100.000 VNĐ" },
+      { name: "Vé VIP", price: "300.000 VNĐ" },
+    ],
   },
   {
     slug: "thoi-trang-thu-dong-2222",
@@ -37,14 +49,22 @@ export const events = [
     time: "19:00",
     location: "Tràng Tiền Plaza, Hà Nội",
     status: "Đã hết vé",
+    ticketPrice: [
+      { name: "Front Row", price: "1.500.000 VNĐ" },
+      { name: "Standard", price: "800.000 VNĐ" },
+    ],
   },
-   {
+  {
     slug: "hoang-dung-xoay-tron-2",
     image: "/images/event-1.jpg",
     title: "HOÀNG DŨNG – XOAY TRÒN CONCERT 222",
     date: "02/08/2025",
     time: "20:00",
     location: "Cung điền kinh Mỹ Đình, Hà Nội",
+    ticketPrice: [
+      { name: "Ghế A", price: "400.000 VNĐ" },
+      { name: "Ghế B", price: "200.000 VNĐ" },
+    ],
   },
   {
     slug: "am-thuc-chau-a-222",
@@ -86,5 +106,4 @@ export const events = [
     time: "19:00",
     location: "Tràng Tiền Plaza, Hà Nội",
   },
-  
 ];
