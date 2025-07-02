@@ -7,6 +7,10 @@ import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
 import SeatSelector from "@/components/SeatSelector";
 import BookingForm from "@/components/BookingForm";
+import SeatBookingSection from "@/components/SeatBookingSection";
+import BookingProgressBar from "@/components/BookingProgressBar";
+
+
 
 
 
@@ -40,9 +44,10 @@ export default async function BookingPage(props: { params: paramsType }) {
   // Render nội dung trang
   return (
     
-    <main className="bg-white pt-24 pb-10 text-gray-800">
+    <main className="bg-white pt-17 pb-5 text-gray-800">
       <Header />
-      <div className="max-w-7xl mx-auto px-4">
+     <BookingProgressBar />
+      <div className="max-w-7xl mx-auto pt-10 px-4">
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* Left - Banner */}
           <div className="relative w-full lg:w-1/2 rounded-xl overflow-hidden shadow">
@@ -98,22 +103,7 @@ export default async function BookingPage(props: { params: paramsType }) {
       </div>
 
       {/* Seat Selection Section */}
-<div id="booking" className="mt-12">
-  <h2 className="text-2xl font-bold mb-4 text-[#005366]">Sơ đồ chọn chỗ</h2>
-  
-
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-    {/* Seat Selector (Bên trái) */}
-    <div className="w-full h-[400px] bg-gray-100 border border-dashed border-gray-400 rounded-lg flex items-center justify-center">
-      <span className="text-gray-400">
-        <SeatSelector seats={[]} />
-      </span>
-    </div>
-
-    {/* Booking Form (Bên phải) */}
-    <BookingForm selectedSeats={[]} total={0} />
-  </div>
-</div>
+<SeatBookingSection />
 
       </div>
 

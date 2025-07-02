@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
+    "@leenguyen/react-flip-clock-countdown": "^1.6.1",
     "@radix-ui/react-tooltip": "^1.2.7",
     "axios": "^1.10.0",
     "classnames": "^2.5.1",
